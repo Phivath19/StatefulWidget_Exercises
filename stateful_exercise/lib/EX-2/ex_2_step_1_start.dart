@@ -68,7 +68,7 @@ class _FavoriteCardState extends State<FavoriteCard> {
     return Container(
       decoration: const BoxDecoration(
         border: Border(
-            bottom: BorderSide(width: .5, color: Colors.grey),
+            bottom: BorderSide(width: 0.5, color: Colors.grey),
         ),
       ),
       padding: const EdgeInsets.fromLTRB(10, 20, 10, 20),

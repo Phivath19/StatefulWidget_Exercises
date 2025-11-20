@@ -21,26 +21,26 @@ class ManageImage extends StatefulWidget {
 }
 
 class _ManageImageState extends State<ManageImage> {
-  int _currentIndex = 0;
+  int currentIndex = 0;
 
-  void _nextImage() {
+  void nextImage() {
     setState(() {
-      if (_currentIndex == images.length - 1) {
-        _currentIndex = 0;
+      if (currentIndex == images.length - 1) {
+        currentIndex = 0;
       }
       else {
-        _currentIndex++;
+        currentIndex++;
       }
     });
   }
 
-  void _previousImage() {
+  void previousImage() {
     setState(() {
-      if (_currentIndex == 0) {
-        _currentIndex = images.length - 1;
+      if (currentIndex == 0) {
+        currentIndex = images.length - 1;
       }
       else {
-        _currentIndex--;
+        currentIndex--;
       }
     });
   }
@@ -63,20 +63,20 @@ class _ManageImageState extends State<ManageImage> {
           IconButton(
             icon: const Icon(Icons.navigate_before),
             tooltip: 'Previous Image',
-            onPressed: _previousImage,
+            onPressed: previousImage,
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 50, 0),
             child: IconButton(
               icon: const Icon(Icons.navigate_next),
               tooltip: 'Next Image',
-              onPressed: _nextImage,
+              onPressed: nextImage,
             ),
           ),
         ],
       ),
       body: Image.asset(
-        images[_currentIndex],
+        images[currentIndex],
         fit: BoxFit.cover,
         width: double.infinity,
       ),
