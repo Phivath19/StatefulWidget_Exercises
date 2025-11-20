@@ -50,17 +50,17 @@ class FavoriteCard extends StatefulWidget {
 
 class _FavoriteCardState extends State<FavoriteCard> {
 
-  bool _isFavorite = false;
+  bool isFavorite = false;
 
   @override
   void initState(){
     super.initState();
-    _isFavorite = widget.isFavorite;
+    isFavorite = widget.isFavorite;
   }
   
-  void _toggleFavorite(){
+  void toggleFavorite(){
       setState(() {
-        _isFavorite = !_isFavorite;
+        isFavorite = !isFavorite;
       });
   }
   @override
@@ -97,10 +97,10 @@ class _FavoriteCardState extends State<FavoriteCard> {
             ),
           ),
           IconButton(
-            onPressed: _toggleFavorite, 
+            onPressed: toggleFavorite, 
             icon: Icon(
               Icons.favorite_rounded,
-              color: _isFavorite ? Colors.red: Colors.grey,
+              color: isFavorite ? Colors.red: Colors.grey,
               size: 25,
               
             ),
