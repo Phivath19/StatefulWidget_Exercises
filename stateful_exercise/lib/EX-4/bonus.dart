@@ -106,11 +106,14 @@ class _ProgressBarState extends State<ProgressBar> {
 Color getProgressColor() {
   if (score <= 3) {  
     return Colors.lightGreen.shade300;
-  } else if (score <= 5) {
+  } 
+  else if (score <= 5) {
     return Colors.lightGreen.shade500;
-  } else if (score <= 7) {
+  } 
+  else if (score <= 7) {
     return Colors.lightGreen.shade700;
-  } else {
+  } 
+  else {
     return Colors.green.shade900;
   }
 }

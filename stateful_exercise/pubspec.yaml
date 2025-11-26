@@ -56,7 +56,9 @@ flutter:
     - lib/EX-3/w4-s2/bird2.jpg
     - lib/EX-3/w4-s2/girl.jpg
     - lib/EX-3/w4-s2/man.jpg
-    - lib/EX-3/w4-s2/insect.jpg        
+    - lib/EX-3/w4-s2/insect.jpg  
+    - lib/W8-Practice/EXERCISE-3/ui/screens/assets/Goat.jpg
+       
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
