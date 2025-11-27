@@ -2,17 +2,19 @@
 import 'package:flutter/material.dart';
 
 class TemperatureScreen extends StatefulWidget {
-  // This callback function is called when the "Back" button is pressed
   final VoidCallback onBackPressed;
 
-  const TemperatureScreen({super.key, required this.onBackPressed});
+  const TemperatureScreen({
+    super.key, 
+    required this.onBackPressed,
+  });
 
   @override
   State<TemperatureScreen> createState() => _TemperatureScreenState();
 }
 
 class _TemperatureScreenState extends State<TemperatureScreen> {
-  // Text controllers to manage the input fields
+
   final TextEditingController celsiusController = TextEditingController();
   final TextEditingController fahrenheitController = TextEditingController();
 
@@ -25,41 +27,37 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
     hintStyle: const TextStyle(color: Colors.white),
   );
 
-  // // Convert Celsius to Fahrenheit
-  // void celsiusToFahrenheit(String value) {
-  //   if (value.isEmpty) {
-  //     fahrenheitController.clear();
-  //     return;
-  //   }
-  //   try {
-  //     double celsius = double.parse(value);
-  //     double fahrenheit = (celsius * 9 / 5) + 32;
-  //     setState(() {
-  //       fahrenheitController.text = fahrenheit.toStringAsFixed(2);
-  //     });
-  //   } catch (e) {
-  //     fahrenheitController.clear();
-  //   }
-  // }
-
-  // // Convert Fahrenheit to Celsius
-  // void fahrenheitToCelsius(String value) {
-  //   if (value.isEmpty) {
-  //     celsiusController.clear();
-  //     return;
-  //   }
-  //   try {
-  //     double fahrenheit = double.parse(value);
-  //     double celsius = (fahrenheit - 32) * 5 / 9;
-  //     setState(() {
-  //       celsiusController.text = celsius.toStringAsFixed(2);
-  //     });
-  //   } catch (e) {
-  //     celsiusController.clear();
-  //   }
-  // }
+  void celsiusToFahrenheit(String value) {
+    if (value.isEmpty) {
+      fahrenheitController.clear();
+      return;
+    }
+    try {
+      double celsius = double.parse(value);
+      double fahrenheit = (celsius * 9 / 5) + 32;
+      setState(() {
+        fahrenheitController.text = fahrenheit.toStringAsFixed(2);
+      });
+    } catch (e) {
+      fahrenheitController.clear();
+    }
+  }
+  void fahrenheitToCelsius(String value) {
+    if (value.isEmpty) {
+      celsiusController.clear();
+      return;
+    }
+    try {
+      double fahrenheit = double.parse(value);
+      double celsius = (fahrenheit - 32) * 5 / 9;
+      setState(() {
+        celsiusController.text = celsius.toStringAsFixed(2);
+      });
+    } catch (e) {
+      celsiusController.clear();
+    }
+  }
   
-  // Clean up text controllers when the screen is disposed
   @override
   void dispose() {
     celsiusController.dispose();
@@ -98,8 +96,7 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
               decoration: inputDecoration,
               style: const TextStyle(color: Colors.white),
               keyboardType: TextInputType.number,
-              // Convert when user types in Celsius field
-              // onChanged: celsiusToFahrenheit,
+              onChanged: celsiusToFahrenheit,
             ),
             const SizedBox(height: 30),
             const Text(
@@ -112,8 +109,7 @@ class _TemperatureScreenState extends State<TemperatureScreen> {
               decoration: inputDecoration,
               style: const TextStyle(color: Colors.white),
               keyboardType: TextInputType.number,
-              // Convert when user types in Fahrenheit field
-              // onChanged: fahrenheitToCelsius,
+              onChanged: fahrenheitToCelsius,
             ),
             const SizedBox(height: 50),
             ElevatedButton(

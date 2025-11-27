@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'jokes.dart'; // Import your jokes database
+import 'jokes.dart';
 
 Color appColor = Colors.green[300] as Color;
 
